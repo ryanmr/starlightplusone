@@ -1,0 +1,23 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import { Homepage } from "../components/pages/Homepage";
+---
+
+<StarlightPage frontmatter={{ title: "My custom page", template: "splash" }}>
+  <div class="no-auto-link">
+    <!--
+      🔥 Why is this here?
+
+      Because we're taking full control of this page,
+      and we want to reuse our react components as elements of this page,
+      we need React to manage the entire section.
+     -->
+    <Homepage client:only="react" />
+  </div>
+</StarlightPage>
+
+<style>
+  .no-auto-link a:-webkit-any-link {
+    text-decoration: none;
+  }
+</style>

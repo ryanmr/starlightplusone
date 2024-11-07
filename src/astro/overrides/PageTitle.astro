@@ -1,0 +1,8 @@
+---
+import type { Props } from "@astrojs/starlight/props";
+import DefaultPageTitle from "@astrojs/starlight/components/PageTitle.astro";
+
+const isHomepage = Astro.props.slug === "";
+---
+
+{isHomepage ? <div id="_top" /> : <DefaultPageTitle {...Astro.props} />}

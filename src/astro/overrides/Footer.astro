@@ -1,0 +1,19 @@
+---
+import type { Props } from "@astrojs/starlight/props";
+import DefaultFooter from "@astrojs/starlight/components/Footer.astro";
+
+const isHomepage = Astro.props.slug === "";
+---
+
+{
+  isHomepage ? (
+    <footer class="bg-stone-900">
+      <hr />
+      this is the footer
+    </footer>
+  ) : (
+    <DefaultFooter {...Astro.props}>
+      <slot />
+    </DefaultFooter>
+  )
+}
